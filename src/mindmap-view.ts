@@ -1,6 +1,6 @@
 import { EventRef, ItemView, Menu, Vault, Workspace, WorkspaceLeaf } from 'obsidian';
 import { Transformer } from 'markmap-lib';
-import { Markmap } from 'markmap-view';
+import { Markmap, deriveOptions } from 'markmap-view';
 import { INode } from 'markmap-common';
 import { FRONT_MATTER_REGEX, MD_VIEW_TYPE, MM_VIEW_TYPE } from './constants';
 import ObsidianMarkmap from './obsidian-markmap-plugin';
@@ -184,8 +184,12 @@ export default class MindmapView extends ItemView {
               spacingHorizontal: this.settings.spacingHorizontal ?? 80,
               paddingX: this.settings.paddingX ?? 8,
               initialExpandLevel: this.settings.initialExpandLevel ?? -1,
+              maxWidth: this.settings.maxWidth ?? 0
             }
           };
+          if (this.settings.colorFreezeLevel != null) {
+            options.color = deriveOptions({colorFreezeLevel: this.settings.colorFreezeLevel}).color
+          }
           try {
             const markmapSVG = Markmap.create(svg, options, root);
           } catch (error) {
