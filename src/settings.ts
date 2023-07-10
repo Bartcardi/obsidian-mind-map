@@ -7,7 +7,9 @@ export class MindMapSettings {
     spacingVertical: number = 5;
     spacingHorizontal: number = 80;
     paddingX: number = 8;
+    maxWidth: number = 0; // 0 will not wrap
     initialExpandLevel: number = -1;
+    colorFreezeLevel?: number;
 }
 
 // Not saved, but for optional command rendering overrides. Properties must be in sync.
@@ -18,5 +20,7 @@ export class MindMapSettingsOverride {
     spacingVertical?: number;
     spacingHorizontal?: number;
     paddingX?: number;
+    maxWidth?: number;
     initialExpandLevel?: number;
+    colorFreezeLevel?: number;
 }
