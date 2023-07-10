@@ -9,6 +9,7 @@ on:
 
 env:
   PLUGIN_NAME: obsidian-mind-map # Change this to the name of your plugin-id folder
+  RELEASE_TAG: 1.1.1
 
 jobs:
   build:
@@ -40,10 +41,10 @@ jobs:
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        VERSION: ${{ github.ref }}
+        VERSION: ${{ env.RELEASE_TAG }}
       with:
-        tag_name: ${{ github.ref }}
-        release_name: ${{ github.ref }}
+        tag_name: ${{ env.RELEASE_TAG }}
+        release_name: ${{ env.RELEASE_TAG }}
         draft: false
         prerelease: false
     - name: Upload zip file
