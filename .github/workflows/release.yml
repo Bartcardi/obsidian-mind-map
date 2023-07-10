@@ -9,7 +9,7 @@ on:
 
 env:
   PLUGIN_NAME: obsidian-mind-map # Change this to the name of your plugin-id folder
-  RELEASE_TAG: 1.1.1
+  RELEASE_TAG: '1.1.1'
 
 jobs:
   build:
